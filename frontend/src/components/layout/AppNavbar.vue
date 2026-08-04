@@ -1,9 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import Button from '../ui/button/Button.vue';
+import NavMenu from '../ui/navbar/NavMenu.vue';
+import { Menu, X } from '@lucide/vue';
 
-const isProfile = ref(false)
-const isAcademic = ref(false)
+const isSidebar = ref(false)
+const toggleSidebar = () => {
+    isSidebar.value = !isSidebar.value
+}
 </script>
 
 <template>
@@ -16,54 +20,42 @@ const isAcademic = ref(false)
                     <div class="text-sm">DIGITAL CENTER</div>
                 </div>
             </div>
-            <nav class="flex items-center gap-2">
-                <router-link class="px-2 py-1.5 rounded-md transition duration-100 hover:bg-gray-100">Home</router-link>
-                <div class="relative inline-block" @mouseleave="isProfile = false">
-                    <router-link :class="isProfile ? 'bg-gray-100' : ''" to="" @mouseenter="isProfile = true"
-                        class="block px-2 py-1.5 rounded-md transition duration-100">
-                        Profile
-                    </router-link>
-                    <div class="absolute right-0 top-full pt-2 z-50" v-if="isProfile" @mouseenter="isProfile = true">
-                        <div
-                            class="text-sm w-50 bg-white border border-gray-100 p-2 flex flex-col rounded-md gap-1 shadow-md">
-                            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">About
-                                School</router-link>
-                            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Vision &
-                                Mission</router-link>
-                            <router-link to=""
-                                class="p-2 hover:bg-gray-100 rounded-md transition duration-100">History</router-link>
-                            <router-link to=""
-                                class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Facilities</router-link>
-                        </div>
-                    </div>
+            <NavMenu class="lg:block md:hidden hidden" />
+            <div class="lg:block md:hidden hidden">
+                <Button>Log in</Button>
+            </div>
+            <div class="lg:hidden md:block block">
+                <div @click="toggleSidebar" class="cursor-pointer p-2 rounded-full hover:bg-gray-200">
+                    <Menu class="size-8" />
                 </div>
-                <div class="relative inline-block" @mouseleave="isAcademic = false">
-                    <router-link :class="isAcademic ? 'bg-gray-100' : ''" to="" @mouseenter="isAcademic = true"
-                        class="block px-2 py-1.5 rounded-md transition duration-100">
-                        Academic
-                    </router-link>
-                    <div class="absolute right-0 top-full pt-2 z-50" v-if="isAcademic" @mouseenter="isAcademic = true">
-                        <div
-                            class="text-sm w-50 bg-white border border-gray-100 p-2 flex flex-col rounded-md gap-1 shadow-md">
-                            <router-link to=""
-                                class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Curriculum</router-link>
-                            <router-link to=""
-                                class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Calendar</router-link>
-                            <router-link to=""
-                                class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Registration</router-link>
-                        </div>
-                    </div>
-                </div>
-                <router-link to=""
-                    class="px-2 py-1.5 hover:bg-gray-100 rounded-md transition duration-100">News</router-link>
-                <router-link to=""
-                    class="px-2 py-1.5 hover:bg-gray-100 rounded-md transition duration-100">Events</router-link>
-                <router-link to=""
-                    class="px-2 py-1.5 hover:bg-gray-100 rounded-md transition duration-100">Gallery</router-link>
-                <router-link to=""
-                    class="px-2 py-1.5 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
-            </nav>
-            <Button>Log in</Button>
+            </div>
         </div>
     </header>
+
+    <div @click="toggleSidebar" v-if="isSidebar" class="inset-0 z-10 bg-black/40 top-0 fixed"></div>
+
+    <div :class="isSidebar ? 'translate-x-0' : 'translate-x-full'"
+        class="fixed transitionn duration-200 z-20 w-72 h-screen top-0 right-0 bg-white border border-gray-200">
+        <div class="flex justify-between items-center p-5 h-20 border-b border-gray-200">
+            <div class="text-md font-semibold">DHS MENU</div>
+            <div @click="toggleSidebar" class="cursor-pointer p-2 rounded-full hover:bg-gray-200">
+                <X class="size-8" />
+            </div>
+        </div>
+        <div class="flex flex-col p-2 gap-1 p-5">
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Home</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">About
+                School</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Vision &
+                Mission</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">History</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Facilities</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Curriculum</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Calendar</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">News</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Events</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Gallery</router-link>
+            <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
+        </div>
+    </div>
 </template>
