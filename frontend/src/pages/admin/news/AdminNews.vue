@@ -58,11 +58,11 @@ const news = [
                     <h1 class="lg:text-xl text-sm font-semibold">News Management</h1>
                     <p class="text-sm text-gray-500">Create and manage school publications</p>
                 </div>
-                <button
+                <router-link to="/admin/news/add"
                     class="flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-700">
                     <Plus class="size-4" />
                     Create News
-                </button>
+                </router-link>
             </header>
             <main class="p-8">
                 <div class="grid gap-4 md:grid-cols-3">

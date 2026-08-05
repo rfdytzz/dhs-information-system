@@ -1,4 +1,4 @@
-import AdminNews from '@/pages/admin/AdminNews.vue'
+import AdminNews from '@/pages/admin/news/AdminNews.vue'
 import Dashboard from '@/pages/admin/Dashboard.vue'
 import Home from '@/pages/Home.vue'
 import AboutSchool from '@/pages/main/AboutSchool.vue'
@@ -10,6 +10,9 @@ import History from '@/pages/main/History.vue'
 import News from '@/pages/main/News.vue'
 import VisionMission from '@/pages/main/VisionMission.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import CreateNews from '@/pages/admin/news/CreateNews.vue'
+import AdminEvents from '@/pages/admin/events/AdminEvents.vue'
+import CreateEvents from '@/pages/admin/events/CreateEvents.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,7 +28,10 @@ const router = createRouter({
     { path: '/contact', component: Contact },
 
     { path: '/admin', component: Dashboard },
-    { path: '/admin/news', component: AdminNews }
+    { path: '/admin/news', component: AdminNews },
+    { path: '/admin/news/add', component: CreateNews },
+    { path: '/admin/events', component: AdminEvents },
+    { path: '/admin/events/add', component: CreateEvents },
   ],
 })
 
