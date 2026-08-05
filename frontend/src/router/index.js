@@ -1,8 +1,9 @@
-import AboutSchool from '@/pages/AboutSchool.vue'
-import Facilities from '@/pages/Facilities.vue'
-import History from '@/pages/History.vue'
 import Home from '@/pages/Home.vue'
-import VisionMission from '@/pages/VisionMission.vue'
+import AboutSchool from '@/pages/main/AboutSchool.vue'
+import Facilities from '@/pages/main/Facilities.vue'
+import History from '@/pages/main/History.vue'
+import News from '@/pages/main/News.vue'
+import VisionMission from '@/pages/main/VisionMission.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -13,6 +14,7 @@ const router = createRouter({
     { path: '/profile/vision-mission', component: VisionMission },
     { path: '/profile/history', component: History },
     { path: '/profile/facilities', component: Facilities },
+    { path: '/news', component: News },
   ],
 })
 

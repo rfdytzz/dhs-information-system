@@ -5,32 +5,38 @@ import { useRoute } from 'vue-router';
 const isProfile = ref(false)
 const isAcademic = ref(false)
 const route = useRoute()
+const profileRoutes = [
+    '/profile',
+    '/profile/vision-mission',
+    '/profile/history',
+    '/profile/facilities'
+]
 </script>
 
 <template>
     <nav class="flex items-center">
-        <router-link to="/" :class="route.path === '/' ? 'bg-gray-100' : ''" class="px-2 py-2 rounded-md transition duration-100 hover:bg-gray-100">Home</router-link>
+        <router-link to="/" :class="route.path === '/' ? 'bg-gray-100' : ''"
+            class="px-2 py-2 rounded-md transition duration-100 hover:bg-gray-100">Home</router-link>
         <div class="relative inline-block" @mouseleave="isProfile = false">
-            <button
-                :class="isProfile 
-                || route.path === '/profile'
-                || route.path === '/profile/vision-mission'
-                || route.path === 'profile/history'
-                || route.path === 'profile/facilities'
-                || route ? 'bg-gray-100' : ''"
-                @mouseenter="isProfile = true"
-                class="block px-2 py-1.5 rounded-md transition duration-100">
+            <button :class="isProfile || profileRoutes.includes(route.path)
+                    ? 'bg-gray-100'
+                    : ''
+                " @mouseenter="isProfile = true" class="block px-2 py-1.5 rounded-md transition duration-100">
                 Profile
             </button>
             <div class="absolute right-0 top-full pt-2 z-50" v-if="isProfile" @mouseenter="isProfile = true">
                 <div class="text-sm w-50 bg-white border border-gray-100 p-2 flex flex-col rounded-md gap-1 shadow-md">
-                    <router-link to="/profile" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">About
+                    <router-link :class="route.path === '/profile' ? 'bg-gray-100' : ''" to="/profile"
+                        class="p-2 hover:bg-gray-100 rounded-md transition duration-100">About
                         School</router-link>
-                    <router-link to="/profile/vision-mission" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Vision &
+                    <router-link :class="route.path === '/profile/vision-mission' ? 'bg-gray-100' : ''"
+                        to="/profile/vision-mission"
+                        class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Vision &
                         Mission</router-link>
-                    <router-link to="/profile/history"
+                    <router-link :class="route.path === '/profile/history' ? 'bg-gray-100' : ''" to="/profile/history"
                         class="p-2 hover:bg-gray-100 rounded-md transition duration-100">History</router-link>
-                    <router-link to="/profile/facilitiesgi"
+                    <router-link :class="route.path === '/profile/facilities' ? 'bg-gray-100' : ''"
+                        to="/profile/facilities"
                         class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Facilities</router-link>
                 </div>
             </div>
@@ -51,11 +57,9 @@ const route = useRoute()
                 </div>
             </div>
         </div>
-        <router-link to="" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">News</router-link>
+        <router-link to="/news" :class="route.path === '/news' ? 'bg-gray-100' : ''" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">News</router-link>
         <router-link to="" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Events</router-link>
-        <router-link to=""
-            class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Gallery</router-link>
-        <router-link to=""
-            class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
+        <router-link to="" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Gallery</router-link>
+        <router-link to="" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
     </nav>
 </template>
