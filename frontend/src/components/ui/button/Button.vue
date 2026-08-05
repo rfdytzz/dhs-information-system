@@ -57,7 +57,10 @@ const buttonClass = computed(() => {
             "h-10 px-8",
 
         icon:
-            "h-9 w-9"
+            "h-9 w-9",
+
+        long: 
+            "p-3 text-md w-full"
     }
 
     return [

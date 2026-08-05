@@ -7,11 +7,12 @@ import { Menu, X } from '@lucide/vue';
 const isSidebar = ref(false)
 const toggleSidebar = () => {
     isSidebar.value = !isSidebar.value
+    document.body.classList.toggle('overflow-hidden', isSidebar.value)
 }
 </script>
 
 <template>
-    <header class="max-w-full py-2 border-b border-gray-200 px-5">
+    <header class="max-w-full fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-10 py-2 border-b border-gray-200 px-5">
         <div class="flex items-center justify-between">
             <div class="flex gap-2 items-center">
                 <img src="/src/assets/dhs-logo.png" class="size-16" alt="">
@@ -42,7 +43,7 @@ const toggleSidebar = () => {
                 <X class="size-8" />
             </div>
         </div>
-        <div class="flex flex-col p-2 gap-1 p-5">
+        <div class="flex flex-col gap-1 p-5">
             <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Home</router-link>
             <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">About
                 School</router-link>
@@ -56,6 +57,9 @@ const toggleSidebar = () => {
             <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Events</router-link>
             <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Gallery</router-link>
             <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
+        </div>
+        <div class="flex justify-between items-center p-5 h-20 border-b border-gray-200">
+            <Button size="long">Log in</Button>
         </div>
     </div>
 </template>
