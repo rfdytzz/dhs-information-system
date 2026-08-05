@@ -87,10 +87,13 @@ const news = [
             </section>
             <section class="px-6 py-24">
                 <div class="container mx-auto">
-                    <div class="mb-12">
+                    <div class="mb-12 flex justify-between items-center">
                         <h2 class="text-3xl font-bold tracking-tight">
                             Latest Articles
                         </h2>
+                        <div class="flex items-center">
+                            
+                        </div>
                     </div>
                     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         <article v-for="item in news" :key="item.title"

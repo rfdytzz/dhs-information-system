@@ -58,8 +58,8 @@ const profileRoutes = [
             </div>
         </div>
         <router-link to="/news" :class="route.path === '/news' ? 'bg-gray-100' : ''" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">News</router-link>
-        <router-link to="" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Events</router-link>
-        <router-link to="" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Gallery</router-link>
-        <router-link to="" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
+        <router-link to="/events" :class="route.path === '/events' ? 'bg-gray-100' : ''" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Events</router-link>
+        <router-link to="/gallery" :class="route.path === '/gallery' ? 'bg-gray-100' : ''" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Gallery</router-link>
+        <router-link to="/contact" :class="route.path === '/contact' ? 'bg-gray-100' : ''" class="px-2 py-2 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
     </nav>
 </template>
