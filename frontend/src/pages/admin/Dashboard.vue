@@ -4,9 +4,13 @@ import {
     CalendarDays,
     Users,
     GraduationCap,
-    ArrowUpRight
+    ArrowUpRight,
+    User2Icon,
+    Settings,
+    LogOut
 } from "@lucide/vue"
 import AdminSidebar from "@/components/layout/AdminSidebar.vue"
+import { ref } from "vue"
 
 const stats = [
     { title: "Total Students", value: "1,240", icon: Users, description: "+12% this year" },
@@ -27,6 +31,11 @@ const activities = [
     "Gallery photos uploaded",
     "New student registration received"
 ]
+
+const isProfileDrop = ref(false)
+const toggleProfileDrop = () => {
+    isProfileDrop.value = !isProfileDrop.value
+}
 </script>
 
 <template>
@@ -36,13 +45,33 @@ const activities = [
         </div>
         <div class="lg:ml-72 md:ml-0 ml-0">
             <header
-                class="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-8">
+                class="sticky top-0 z-30 flex h-18 items-center justify-between border-b border-gray-200 bg-white px-8">
                 <div>
                     <h1 class="text-lg font-semibold">Dashboard</h1>
                 </div>
-                <div
-                    class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-white">
-                    A
+                <div class="flex flex-col relative items-end">
+                    <div
+                        class="flex items-center gap-2 hover:bg-gray-100 p-1 cursor-pointer transition duration-100 rounded-md hover:ring-3 ring-gray-100">
+                        <div
+                            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-white">
+                            RD
+                        </div>
+                        <div class="flex flex-col items-start" @click="toggleProfileDrop">
+                            <div class="text-[12px] font-semibold">RAFKA DYTA</div>
+                            <div class="text-[12px] text-gray-500">SUPER ADMIN</div>
+                        </div>
+                    </div>
+                    <div class="absolute right-0 top-full pt-2 z-50">
+                        <div :class="isProfileDrop ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'"
+                            class="text-sm w-40 bg-white border transition-all duration-100 ease-in-out border-gray-100 p-2 flex flex-col rounded-md gap-1 shadow-md">
+                            <router-link to=""
+                                class="p-2 hover:bg-gray-100 rounded-md transition duration-100 flex items-center gap-2"><User2Icon class="size-4" /> Profile</router-link>
+                            <router-link to=""
+                                class="p-2 hover:bg-gray-100 rounded-md transition duration-100 flex items-center gap-2"><Settings class="size-4" /> Settings</router-link>
+                            <router-link to=""
+                                class="p-2 hover:bg-red-50 text-red-500 rounded-md transition duration-100 flex items-center gap-2"><LogOut class="size-4" /> Log out</router-link>
+                        </div>
+                    </div>
                 </div>
             </header>
 

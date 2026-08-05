@@ -13,6 +13,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import CreateNews from '@/pages/admin/news/CreateNews.vue'
 import AdminEvents from '@/pages/admin/events/AdminEvents.vue'
 import CreateEvents from '@/pages/admin/events/CreateEvents.vue'
+import AdminUsers from '@/pages/admin/users/AdminUsers.vue'
+import CreateUsers from '@/pages/admin/users/CreateUsers.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +34,8 @@ const router = createRouter({
     { path: '/admin/news/add', component: CreateNews },
     { path: '/admin/events', component: AdminEvents },
     { path: '/admin/events/add', component: CreateEvents },
+    { path: '/admin/users', component: AdminUsers },
+    { path: '/admin/users/add', component: CreateUsers },
   ],
 })
 
