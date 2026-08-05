@@ -54,5 +54,3 @@ DHS SIS is a modern School Information System designed to digitize school servic
 ### Database
 
 - MySQL
-
-## Project Structure
