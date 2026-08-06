@@ -7,10 +7,6 @@ import AppPrincipalWelcome from '@/components/layout/AppPrincipalWelcome.vue';
 import AppQuickStats from '@/components/layout/AppQuickStats.vue';
 import { onMounted } from 'vue';
 import AppUpcomingEvents from '@/components/layout/AppUpcomingEvents.vue';
-
-onMounted(() => {
-    document.title = "DHS - Information System"
-})
 </script>
 
 <template>

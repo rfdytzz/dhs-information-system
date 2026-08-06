@@ -14,8 +14,7 @@ import {
     ChevronDown,
     Megaphone,
     Mail,
-    History,
-    Building2
+    NotebookPen
 } from "@lucide/vue"
 
 import { ref } from "vue"
@@ -49,6 +48,12 @@ const menus = [
         title: "Events",
         icon: CalendarDays,
         link: "/admin/events"
+    },
+
+    {
+        title: "Personal Blog",
+        icon: NotebookPen,
+        link: "/admin/blog"
     },
 
     {
@@ -104,6 +109,11 @@ const menus = [
         group: "People"
     },
 
+    {
+        title: "Users",
+        icon: ShieldCheck,
+        link: "/admin/users"
+    },
 
     {
         title: "Students",
@@ -133,12 +143,6 @@ const menus = [
         title: "Messages",
         icon: Mail,
         link: "/admin/messages"
-    },
-
-    {
-        title: "Users",
-        icon: ShieldCheck,
-        link: "/admin/users"
     },
 
     {

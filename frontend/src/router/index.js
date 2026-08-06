@@ -15,6 +15,7 @@ import AdminEvents from '@/pages/admin/events/AdminEvents.vue'
 import CreateEvents from '@/pages/admin/events/CreateEvents.vue'
 import AdminUsers from '@/pages/admin/users/AdminUsers.vue'
 import CreateUsers from '@/pages/admin/users/CreateUsers.vue'
+import Login from '@/pages/auth/Login.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,8 @@ const router = createRouter({
     { path: '/events', component: Events },
     { path: '/gallery', component: Gallery },
     { path: '/contact', component: Contact },
+
+    { path: '/login', component: Login },
 
     { path: '/admin', component: Dashboard },
     { path: '/admin/news', component: AdminNews },
