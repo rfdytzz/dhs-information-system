@@ -116,19 +116,6 @@ const menus = [
     },
 
     {
-        title: "Students",
-        icon: Users,
-        link: "/admin/students"
-    },
-
-    {
-        title: "Teachers",
-        icon: UserRoundCheck,
-        link: "/admin/teachers"
-    },
-
-
-    {
         group: "System"
     },
 

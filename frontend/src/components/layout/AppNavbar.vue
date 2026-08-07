@@ -3,6 +3,9 @@ import { ref } from 'vue';
 import Button from '../ui/button/Button.vue';
 import NavMenu from '../ui/navbar/NavMenu.vue';
 import { Menu, X } from '@lucide/vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 const isSidebar = ref(false)
 const toggleSidebar = () => {
@@ -23,7 +26,7 @@ const toggleSidebar = () => {
             </div>
             <NavMenu class="lg:block md:hidden hidden" />
             <div class="lg:block md:hidden hidden">
-                <Button>Log in</Button>
+                <Button @click="router.push('/login')">Log in</Button>
             </div>
             <div class="lg:hidden md:block block">
                 <div @click="toggleSidebar" class="cursor-pointer p-2 rounded-full hover:bg-gray-200">
@@ -59,7 +62,7 @@ const toggleSidebar = () => {
             <router-link to="" class="p-2 hover:bg-gray-100 rounded-md transition duration-100">Contact</router-link>
         </div>
         <div class="flex justify-between items-center p-5 h-20 border-b border-gray-200">
-            <Button size="long">Log in</Button>
+            <Button @click="router.push('/login')" size="long">Log in</Button>
         </div>
     </div>
 </template>
