@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'DHS Admin',
-            "email" => 'admin@dhsis.sch.id',
+            "email" => 'admin@dhs.sch.id',
             "phone_number" => "62-857-7559-0136",
             "role" => "admin",
             "writer" => true,
