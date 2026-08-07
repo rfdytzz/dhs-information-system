@@ -12,6 +12,7 @@ class AuthController extends Controller
     public function __construct(
         protected LoginService $loginService
     ) {}
+
     public function login(Request $request) {
         $credentials = $request->validate([
             'email' => 'required|email',
@@ -21,5 +22,14 @@ class AuthController extends Controller
         $result = $this->loginService->login($credentials);
 
         return $result;
+    }
+
+    public function logout(Request $request) {
+        $user = Auth::user();
+        $request = $user->currentAccessToken()->delete();
+
+        return response()->json([
+            'message' => 'success'
+        ], 200);
     }
 }
