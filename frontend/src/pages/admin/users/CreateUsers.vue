@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AdminSidebar from "@/components/layout/AdminSidebar.vue"
 import { ArrowLeft, Upload } from "@lucide/vue"
-import { ref } from "vue"
+import { ref, watch } from "vue"
 
 const form = ref({
     name: "",
@@ -9,16 +9,25 @@ const form = ref({
     phone: "",
     password: "",
     confirmPassword: "",
-    role: "Staff",
+    role: "User",
     writer: false,
     active: true
 })
 
 const roles = [
-    "Administrator",
-    "Editor",
-    "Staff"
+    "Admin",
+    "User"
 ]
+
+const defaultPassword = () => {
+    form.value.password = 'dhsis2026'
+    form.value.confirmPassword = 'dhsis2026'
+}
+
+const isShow = ref(false)
+const togglePassword = () => {
+    isShow.value = !isShow.value
+}
 </script>
 
 <template>
@@ -65,7 +74,7 @@ const roles = [
                                     </label>
 
                                     <input v-model="form.name" type="text" placeholder="John Doe"
-                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400">
+                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none transition duration-100 focus:ring-3 ring-gray-200 focus:border-gray-400">
                                 </div>
 
                                 <div>
@@ -74,7 +83,7 @@ const roles = [
                                     </label>
 
                                     <input v-model="form.email" type="email" placeholder="john@example.com"
-                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400">
+                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400 transition duration-100 focus:ring-3 ring-gray-200">
                                 </div>
 
                                 <div>
@@ -83,7 +92,7 @@ const roles = [
                                     </label>
 
                                     <input v-model="form.phone" type="text" placeholder="+62 812 xxxx xxxx"
-                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400">
+                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400 transition duration-100 focus:ring-3 ring-gray-200">
                                 </div>
 
                                 <div>
@@ -91,8 +100,8 @@ const roles = [
                                         Password
                                     </label>
 
-                                    <input v-model="form.password" type="password"
-                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400">
+                                    <input v-model="form.password" :type="isShow ? 'text' : 'password'"
+                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400 transition duration-100 focus:ring-3 ring-gray-200">
                                 </div>
 
                                 <div>
@@ -100,8 +109,17 @@ const roles = [
                                         Confirm Password
                                     </label>
 
-                                    <input v-model="form.confirmPassword" type="password"
-                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400">
+                                    <input v-model="form.confirmPassword" :type="isShow ? 'text' : 'password'"
+                                        class="w-full rounded-lg border border-gray-200 px-4 py-2.5 outline-none focus:border-gray-400 transition duration-100 focus:ring-3 ring-gray-200">
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input @click="togglePassword" type="checkbox" class="size-4" id="togglePassword">
+                                    <label for="togglePassword" class="text-sm text-gray-500 mt-0.5">Show
+                                        Password</label>
+                                </div>
+                                <div class="flex items-center gap-2 justify-end">
+                                    <label @click="defaultPassword" for="defaultPassword" class="text-sm cursor-pointer text-gray-500 mt-0.5">Default
+                                        Password</label>
                                 </div>
                             </div>
                         </section>
@@ -157,19 +175,15 @@ const roles = [
 
                         <section class="rounded-xl border border-gray-200 bg-white p-6">
                             <h2 class="font-semibold">Profile Photo</h2>
-
                             <label
                                 class="mt-5 flex h-52 cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 transition hover:bg-gray-50">
                                 <Upload class="size-8 text-gray-400" />
-
                                 <p class="mt-3 text-sm font-medium">
                                     Upload Photo
                                 </p>
-
                                 <p class="mt-1 text-xs text-gray-500">
                                     PNG, JPG, WEBP
                                 </p>
-
                                 <input type="file" class="hidden">
                             </label>
                         </section>
