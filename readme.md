@@ -36,6 +36,89 @@ DHS SIS is a modern School Information System designed to digitize school servic
 - Document Management
 - System Settings
 
+- ## 📁 Project Structure
+
+```text
+project/
+│
+├── backend/
+│   │
+│   ├── app/
+│   │   ├── Http/
+│   │   │   ├── Controllers/
+│   │   │   ├── Requests/
+│   │   │   └── Resources/
+│   │   │
+│   │   ├── Models/
+│   │   └── Services/
+│   │
+│   ├── database/
+│   │   ├── factories/
+│   │   ├── migrations/
+│   │   └── seeders/
+│   │
+│   ├── routes/
+│   │   ├── api.php
+│   │   └── web.php
+│   │
+│   ├── config/
+│   ├── storage/
+│   ├── tests/
+│   ├── .env
+│   └── composer.json
+│
+├── frontend/
+│   │
+│   ├── src/
+│   │   ├── assets/
+│   │   │
+│   │   ├── components/
+│   │   │   ├── ui/
+│   │   │   └── layout/
+│   │   │
+│   │   ├── composables/
+│   │   │   ├── useLogin.js
+│   │   │   ├── useUsers.js
+│   │   │   └── useProducts.js
+│   │   │
+│   │   ├── lib/
+│   │   │   └── axios.js
+│   │   │
+│   │   ├── stores/
+│   │   │   ├── index.js
+│   │   │   └── auth.js
+│   │   │
+│   │   ├── router/
+│   │   │   └── index.js
+│   │   │
+│   │   ├── views/
+│   │   │   ├── auth/
+│   │   │   │   └── Login.vue
+│   │   │   │
+│   │   │   ├── dashboard/
+│   │   │   │   └── Dashboard.vue
+│   │   │   │
+│   │   │   ├── users/
+│   │   │   │   ├── UserList.vue
+│   │   │   │   ├── UserCreate.vue
+│   │   │   │   └── UserEdit.vue
+│   │   │   │
+│   │   │   └── products/
+│   │   │       ├── ProductList.vue
+│   │   │       ├── ProductCreate.vue
+│   │   │       └── ProductEdit.vue
+│   │   │
+│   │   ├── App.vue
+│   │   └── main.js
+│   │
+│   ├── .env
+│   ├── package.json
+│   └── vite.config.js
+│
+├── .gitignore
+└── README.md
+```
+
 ## Tech Stack
 
 ### Frontend
