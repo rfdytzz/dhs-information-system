@@ -43,6 +43,7 @@ DHS SIS is a modern School Information System designed to digitize school servic
 - Vue.js
 - Tailwind CSS
 - Axios
+- Pinia
 - Vue Router
 
 ### Backend
