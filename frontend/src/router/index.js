@@ -16,6 +16,10 @@ import CreateEvents from '@/pages/admin/events/CreateEvents.vue'
 import AdminUsers from '@/pages/admin/users/AdminUsers.vue'
 import CreateUsers from '@/pages/admin/users/CreateUsers.vue'
 import Login from '@/pages/auth/Login.vue'
+import { useUserStore } from '@/stores/user'
+import pinia from '@/stores'
+
+const user = useUserStore(pinia)
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,7 +36,7 @@ const router = createRouter({
 
     { path: '/login', component: Login },
 
-    { path: '/admin', component: Dashboard },
+    { path: '/admin', component: Dashboard, meta: { auth: true, role: ('admin', 'writer') } },
     { path: '/admin/news', component: AdminNews },
     { path: '/admin/news/add', component: CreateNews },
     { path: '/admin/events', component: AdminEvents },
@@ -43,3 +47,17 @@ const router = createRouter({
 })
 
 export default router
+
+router.beforeEach((to, from) => {
+  const token = user.token
+
+  if (to.meta.auth && !token) {
+    return '/login'
+  }
+
+  if (to.meta.role && to.meta.role !== user.role) {
+    return '/'
+  }
+
+  return true
+})

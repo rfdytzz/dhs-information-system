@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import Button from '../ui/button/Button.vue';
+
+</script>
+
 <template>
     <section class="py-20">
         <div class="container mx-auto px-6">

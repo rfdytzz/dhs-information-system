@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Button from '../ui/button/Button.vue';
+
 const events = [
     {
         date: "20",
@@ -44,9 +46,6 @@ const events = [
                 </Button>
             </div>
 
-
-
-            <!-- Event Cards -->
             <div class="mt-12 grid gap-6 lg:grid-cols-3">
 
                 <article v-for="event in events" :key="event.title"
