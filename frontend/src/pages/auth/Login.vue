@@ -1,5 +1,6 @@
 <script setup>
 import Button from '@/components/ui/button/Button.vue';
+import Loader from '@/components/ui/loader/Loader.vue';
 import { Eye, EyeClosed, EyeOff } from '@lucide/vue';
 import { ref } from 'vue';
 
@@ -32,7 +33,10 @@ const toggleShow = () => {
                             <EyeOff @click="toggleShow" v-else class="cursor-pointer size-5 text-gray-500 hover:text-black transition duration-100"/>
                         </div>
                     </div>
-                    <Button size="long">Log in</Button>
+                    <Button size="long" class="flex items-center gap-1">
+                        <Loader size="sm" />
+                        Log in
+                    </Button>
                 </form>
                 <span class="text-sm text-gray-500">Can't log in? <router-link to="" class="text-black hover:underline">Contact the admin</router-link></span>
             </div>
