@@ -71,23 +71,15 @@ project/
 │   │   ├── assets/
 │   │   │
 │   │   ├── components/
-│   │   │   ├── ui/
-│   │   │   └── layout/
 │   │   │
 │   │   ├── composables/
-│   │   │   ├── useLogin.js
-│   │   │   ├── useUsers.js
-│   │   │   └── useProducts.js
 │   │   │
 │   │   ├── lib/
 │   │   │   └── axios.js
 │   │   │
 │   │   ├── stores/
-│   │   │   ├── index.js
-│   │   │   └── auth.js
 │   │   │
 │   │   ├── router/
-│   │   │   └── index.js
 │   │   │
 │   │   ├── views/
 │   │   │   ├── auth/
