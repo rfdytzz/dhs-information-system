@@ -45,9 +45,7 @@ project/
 │   │
 │   ├── app/
 │   │   ├── Http/
-│   │   │   ├── Controllers/
-│   │   │   ├── Requests/
-│   │   │   └── Resources/
+│   │   │    └── Controllers/
 │   │   │
 │   │   ├── Models/
 │   │   └── Services/
@@ -93,25 +91,12 @@ project/
 │   │   │
 │   │   ├── views/
 │   │   │   ├── auth/
-│   │   │   │   └── Login.vue
-│   │   │   │
 │   │   │   ├── dashboard/
-│   │   │   │   └── Dashboard.vue
-│   │   │   │
 │   │   │   ├── users/
-│   │   │   │   ├── UserList.vue
-│   │   │   │   ├── UserCreate.vue
-│   │   │   │   └── UserEdit.vue
-│   │   │   │
 │   │   │   └── products/
-│   │   │       ├── ProductList.vue
-│   │   │       ├── ProductCreate.vue
-│   │   │       └── ProductEdit.vue
 │   │   │
 │   │   ├── App.vue
 │   │   └── main.js
-│   │
-│   ├── .env
 │   ├── package.json
 │   └── vite.config.js
 │
