@@ -19,8 +19,6 @@ import Login from '@/pages/auth/Login.vue'
 import { useUserStore } from '@/stores/user'
 import pinia from '@/stores'
 
-const user = useUserStore(pinia)
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -36,7 +34,7 @@ const router = createRouter({
 
     { path: '/login', component: Login },
 
-    { path: '/admin', component: Dashboard, meta: { auth: true, role: ('admin', 'writer') } },
+    { path: '/admin', component: Dashboard, meta: { auth: true, role: 'admin' } },
     { path: '/admin/news', component: AdminNews },
     { path: '/admin/news/add', component: CreateNews },
     { path: '/admin/events', component: AdminEvents },
@@ -49,9 +47,13 @@ const router = createRouter({
 export default router
 
 router.beforeEach((to, from) => {
+  const user = useUserStore(pinia)
   const token = user.token
+  console.log("TOKEN", user.token)
+  console.log("ROLE", user.role)
 
   if (to.meta.auth && !token) {
+    console.log("BLOCK: TOKEN KOSONG")
     return '/login'
   }
 

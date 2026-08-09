@@ -14,9 +14,11 @@ class LoginService {
 
         $user = Auth::user();
         $token = $user->createToken('auth:sanctum')->plainTextToken;
+        $role = $user->role;
 
         return response()->json([
             'status' => 'success',
+            'role' => $role,
             'token' => $token 
         ], 200);
     }

@@ -5,24 +5,29 @@ export const useUserStore = defineStore('user', {
         name: '',
         email: '',
         phone_number: '',
-        role: '',
+        role: localStorage.getItem('role') || '',
         writer: false,
         active: true,
-        token: '',
+        token: localStorage.getItem('token') || '',
     }),
 
-    actions: () => ({
+    actions: {
         setUser(data) {
             this.name = data.name
             this.email = data.email
             this.phone_number = data.phone_number
-            this.role = data.role
             this.writer = data.writer
-            this.active = data.active
+            this.activecd = data.active
+        },
+
+        setRole(role) {
+            this.role = role
+            localStorage.setItem('role', role)
         },
 
         setToken(token) {
             this.token = token
+            localStorage.setItem('token', token)
         },
 
         logout() {
@@ -33,5 +38,5 @@ export const useUserStore = defineStore('user', {
             this.writer = ''
             this.active = ''
         },
-    })
+    }
 })

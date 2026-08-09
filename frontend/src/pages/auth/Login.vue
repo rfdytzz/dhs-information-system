@@ -2,8 +2,12 @@
 import Button from '@/components/ui/button/Button.vue';
 import Loader from '@/components/ui/loader/Loader.vue';
 import { useLogin } from '@/composables/auth/useLogin';
+import pinia from '@/stores';
+import { useUserStore } from '@/stores/user';
 import { CircleAlert, Eye, EyeOff, X } from '@lucide/vue';
 import { ref } from 'vue';
+
+const user = useUserStore(pinia)
 
 const isShow = ref(false)
 const toggleShow = () => {
@@ -17,6 +21,10 @@ const handleLogin = () => {
     getLogin(email.value, password.value)
 }
 
+const closeMessage = () => {
+    message.value = ''
+}
+
 </script>
 
 <template>
@@ -28,14 +36,14 @@ const handleLogin = () => {
                     <div class="text-3xl font-bold">Welcome Back</div>
                     <div class="text-sm font-normal text-gray-400">Log in to your DHS account</div>
                 </div>
-                <div class="py-2.5 px-3 text-red-500 border border-red-200 text-sm flex justify-between items-center bg-red-100 w-[80%] rounded-md">
+                <div v-if="message" class="py-2.5 px-3 text-red-500 border border-red-200 text-sm flex justify-between items-center bg-red-100 w-[80%] rounded-md">
                     <div class="flex items-center gap-2">
                         <CircleAlert class="size-4"/>
-                        Incorrect Email or Password
+                        {{ message }}
                     </div>
-                    <X class="size-4 cursor-pointer"/>
+                    <X @click="closeMessage" class="size-4 cursor-pointer"/>
                 </div>
-                <form class="flex flex-col gap-7 w-[80%]">
+                <form @submit.prevent="handleLogin" class="flex flex-col gap-7 w-[80%]">
                     <div class="flex flex-col gap-3">
                         <label for="email" class="font-semibold text-sm">Email</label>
                         <input v-model="email" required id="email" type="text" class="focus:outline-0 border rounded-md py-2 px-4 border-gray-200 focus:border-gray-400 transition duration-100 focus:ring-3 ring-gray-200" placeholder="name@dhs.sch.id">
@@ -49,7 +57,7 @@ const handleLogin = () => {
                         </div>
                     </div>
                     <Button type="submit" size="long" class="flex items-center gap-1" :disabled="loading">
-                        <Loader size="sm" />
+                        <Loader v-if="loading" size="sm" />
                         Log in
                     </Button>
                 </form>
