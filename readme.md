@@ -36,6 +36,66 @@ DHS SIS is a modern School Information System designed to digitize school servic
 - Document Management
 - System Settings
 
+- ## 📁 Project Structure
+
+```text
+project/
+│
+├── backend/
+│   │
+│   ├── app/
+│   │   ├── Http/
+│   │   │    └── Controllers/
+│   │   │
+│   │   ├── Models/
+│   │   └── Services/
+│   │
+│   ├── database/
+│   │   ├── factories/
+│   │   ├── migrations/
+│   │   └── seeders/
+│   │
+│   ├── routes/
+│   │   ├── api.php
+│   │   └── web.php
+│   │
+│   ├── config/
+│   ├── storage/
+│   ├── tests/
+│   ├── .env
+│   └── composer.json
+│
+├── frontend/
+│   │
+│   ├── src/
+│   │   ├── assets/
+│   │   │
+│   │   ├── components/
+│   │   │
+│   │   ├── composables/
+│   │   │
+│   │   ├── lib/
+│   │   │   └── axios.js
+│   │   │
+│   │   ├── stores/
+│   │   │
+│   │   ├── router/
+│   │   │
+│   │   ├── views/
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   ├── users/
+│   │   │   └── products/
+│   │   │
+│   │   ├── App.vue
+│   │   └── main.js
+│   ├── package.json
+│   └── vite.config.js
+│
+├── .gitignore
+└── README.md
+```
+
 ## Tech Stack
 
 ### Frontend
