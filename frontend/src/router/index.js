@@ -49,6 +49,7 @@ export default router
 router.beforeEach((to, from) => {
   const user = useUserStore(pinia)
   const token = user.token
+  console.log("NAME", user.name)
   console.log("TOKEN", user.token)
   console.log("ROLE", user.role)
 

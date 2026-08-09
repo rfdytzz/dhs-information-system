@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {
     Newspaper,
     CalendarDays,
@@ -11,6 +11,8 @@ import {
 } from "@lucide/vue"
 import AdminSidebar from "@/components/layout/AdminSidebar.vue"
 import { ref } from "vue"
+import { useUserStore } from "@/stores/user"
+const user = useUserStore()
 
 const stats = [
     { title: "Total Students", value: "1,240", icon: Users, description: "+12% this year" },
@@ -36,6 +38,7 @@ const isProfileDrop = ref(false)
 const toggleProfileDrop = () => {
     isProfileDrop.value = !isProfileDrop.value
 }
+
 </script>
 
 <template>
@@ -57,8 +60,8 @@ const toggleProfileDrop = () => {
                             RD
                         </div>
                         <div class="flex flex-col items-start" @click="toggleProfileDrop">
-                            <div class="text-[12px] font-semibold">RAFKA DYTA</div>
-                            <div class="text-[12px] text-gray-500">SUPER ADMIN</div>
+                            <div class="text-[12px] font-semibold">{{ user.name }}</div>
+                            <div class="text-[12px] text-gray-500 uppercase">{{ user.role }}</div>
                         </div>
                     </div>
                     <div class="absolute right-0 top-full pt-2 z-50">

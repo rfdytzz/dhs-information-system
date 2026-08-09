@@ -17,7 +17,7 @@ export const useUserStore = defineStore('user', {
             this.email = data.email
             this.phone_number = data.phone_number
             this.writer = data.writer
-            this.activecd = data.active
+            this.active = data.active
         },
 
         setRole(role) {
